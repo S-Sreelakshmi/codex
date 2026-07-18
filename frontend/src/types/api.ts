@@ -50,3 +50,24 @@ export interface RoadClosureResponse {
   }
   closed_edge: Road
 }
+
+export interface FacilityPlacementResponse {
+  baseline: AccessibilityMetrics
+  recommended_location: {
+    node_id: string
+    latitude: number
+    longitude: number
+    average_travel_time_seconds: number | null
+    accessibility_score: number
+  }
+  top_candidates: Array<{
+    node_id: string
+    latitude: number
+    longitude: number
+    average_travel_time_seconds: number | null
+    accessibility_score: number
+  }>
+  accessibility_improvement: number
+  travel_time_improvement_seconds: number | null
+  candidates_evaluated: number
+}
